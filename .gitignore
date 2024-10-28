@@ -1,6 +1,10 @@
+.DS_Store
+*/.DS_Store
 .venv
 __pycache__
 raw/*
 clickhouse.config.d
 createmy.sh
 csv/*
+*.env
+dbtrun.sh
