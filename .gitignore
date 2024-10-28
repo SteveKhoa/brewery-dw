@@ -5,3 +5,4 @@ clickhouse.config.d
 createmy.sh
 csv/*
 *.env
+dbtrun.sh
