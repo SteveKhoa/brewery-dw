@@ -4,3 +4,4 @@ raw/*
 clickhouse.config.d
 createmy.sh
 csv/*
+*.env
