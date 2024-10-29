@@ -1,0 +1,1 @@
+select generateUUIDv4() as uuid, 08 as day, 10 as month, 2024 as year
