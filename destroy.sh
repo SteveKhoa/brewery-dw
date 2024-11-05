@@ -1,0 +1,1 @@
+docker stop clickhouse-server | xargs docker rm

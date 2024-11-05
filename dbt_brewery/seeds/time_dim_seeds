@@ -1,0 +1,9 @@
+INSERT INTO DIM_TIME (uuid, day, month, year)
+SELECT generateUUIDv4() AS uuid,
+       toUInt8(toDayOfMonth(date)) AS day,
+       toUInt8(toMonth(date)) AS month,
+       toUInt16(toYear(date)) AS year
+FROM (
+    SELECT addDays(toDate('2010-01-01'), number) AS date
+    FROM numbers(datediff('day', toDate('2010-01-01'), toDate('2024-12-31')))
+) AS date_series;
