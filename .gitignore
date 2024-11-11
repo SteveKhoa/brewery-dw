@@ -3,7 +3,7 @@
 .venv
 __pycache__
 raw/*
-clickhouse.config.d
+clickhouse.config.d/*.xml
 createmy.sh
 csv/*
 *.env
