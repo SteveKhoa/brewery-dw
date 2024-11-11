@@ -1,1 +1,8 @@
-select generateUUIDv4() as uuid, 08 as day, 10 as month, 2024 as year
+CREATE TABLE DIM_TIME (
+    uuid UUID,
+    day UInt8,
+    month UInt8,
+    year UInt16
+) 
+ENGINE = MergeTree()
+ORDER BY uuid;
