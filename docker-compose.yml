@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  clickhouse-server:
+    image: clickhouse/clickhouse-server
+    cpus: 1
+    mem_limit: 2048m
+    mem_reservation: 2048m
+    cap_add:
+      - SYS_NICE
+      - NET_ADMIN 
+      - IPC_LOCK
+    ports:
+      - 18123:8123
+      - 19000:9000
+      - 19009:9009
+    volumes:
+      - type: bind
+        source: ./docker-entrypoint-initdb.d
+        target: /docker-entrypoint-initdb.d
+      - type: bind
+        source: ./clickhouse.config.d/z_log_disable.xml
+        target: /etc/clickhouse-server/config.d/z_log_disable.xml
+      - type: bind
+        source: ./clickhouse.config.d/asynchronous_metrics_update_period_s.xml
+        target: /etc/clickhouse-server/config.d/asynchronous_metrics_update_period_s.xml
+      - clickhouse-volume:/var/lib/clickhouse/
+      - clickhouse-volume:/var/log/clickhouse-server/
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+
+volumes:
+  clickhouse-volume:
