@@ -1,4 +1,5 @@
 #!/bin/bash
+pip install clickhouse-connect
 
 superset fab create-admin --username admin --firstname Handsome --lastname Admin --email admin@admin.com --password admin
 

@@ -7,3 +7,5 @@ clickhouse.config.d/*.xml
 createmy.sh
 csv/*
 *.env
+superset_home/.cache
+superset_home/.local
