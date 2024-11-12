@@ -16,8 +16,8 @@ services:
       - 19009:9009
     volumes:
       - type: bind
-        source: ./docker-entrypoint-initdb.d
-        target: /docker-entrypoint-initdb.d
+        source: ./docker-entrypoint-initdb.d/ddl.sql
+        target: /docker-entrypoint-initdb.d/ddl.sql
       - type: bind
         source: ./clickhouse.config.d/z_log_disable.xml
         target: /etc/clickhouse-server/config.d/z_log_disable.xml
@@ -31,8 +31,10 @@ services:
         soft: 262144
         hard: 262144
 
-  adventure-works:
+  adventureworks:
     image: postgres
+    networks:
+      - superset-network
     environment:
       - POSTGRES_DB=Adventureworks
       - POSTGRES_USER=postgres
@@ -40,8 +42,8 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
       - type: bind
-        source: ./docker-entrypoint-initdb.d
-        target: /docker-entrypoint-initdb.d
+        source: ./docker-entrypoint-initdb.d/adventureworks.sh
+        target: /docker-entrypoint-initdb.d/adventureworks.sh
       - type: bind
         source: adventureworks
         target: /adventureworks
@@ -52,7 +54,31 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    
+  superset:
+    image: apache/superset
+    networks:
+      - superset-network
+    depends_on:
+      - adventureworks
+    init: true
+    links:
+      - adventureworks:adventureworks
+    volumes:
+      - ./superset_home:/app/superset_home
+      - type: bind
+        source: ./docker-entrypoint-initdb.d/superset.sh
+        target: /docker-entrypoint-initdb.d/superset.sh
+    entrypoint: ["/docker-entrypoint-initdb.d/superset.sh"]
+    environment:
+      - SUPERSET_CONFIG_PATH=/app/superset_home/superset_config.py
+    ports:
+      - '18080:8088'
 
 volumes:
   clickhouse-volume:
   postgres-data:
+
+networks:
+  superset-network:
+    driver: bridge
