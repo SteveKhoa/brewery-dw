@@ -53,14 +53,15 @@ services:
       test: ["CMD-SHELL", "pg_isready -U postgres -d Adventureworks"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 30
     
   superset:
     image: apache/superset
     networks:
       - superset-network
     depends_on:
-      - adventureworks
+      adventureworks:
+        condition: service_healthy
     init: true
     links:
       - adventureworks:adventureworks
