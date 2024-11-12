@@ -1,8 +1,5 @@
-CREATE TABLE DIM_TIME (
-    uuid UUID,
-    day UInt8,
-    month UInt8,
-    year UInt16
-) 
-ENGINE = MergeTree()
-ORDER BY uuid;
+select 
+    generateUUIDv4() as uuid, 
+    toDayOfWeek(toDate('2024/11/08')) as day,
+    toMonth(toDate('2024/11/08')) as month,
+    toYear(toDate('2024/11/08')) as year
