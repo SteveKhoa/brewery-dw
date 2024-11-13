@@ -9,3 +9,4 @@ csv/*
 *.env
 superset_home/.cache
 superset_home/.local
+superset_home/*.dump
