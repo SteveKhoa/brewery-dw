@@ -1,6 +1,6 @@
 # Brewery Operations Data Warehouse
 
-## Script instructions
+## Script instructions (outdated, see Docker Compose)
 
 ### Docker scripts
 
@@ -45,3 +45,34 @@ When you want to get a fresh database, remove the volume `rmvol.sh` (only when y
     Just like normal `dbt run`, you can add more arguments to it. For example, `dbt run --exclude "raw_recipe"`.
 
     This script runs `dbt` with `--threads 4` by default.
+
+## Superset instructions
+
+### Clickhouse connection string
+`clickhousedb://default:@host.docker.internal:18123/default`
+
+### Postgresql connection string
+`postgresql://superset:superset@host.docker.internal:15432/superset`
+
+
+## Docker Compose
+
+`docker compose up` to start all services.
+
+`docker compose down` to terminate all services.
+
+`docker compose down -v` destroy all volumes. Lost data expected.
+
+### Note for Windows users
+
+(Vietnamese)
+```
+Ok lưu ý cho ai muốn chạy các file smooth nhất có thể:
+1. dos2unix 2 file superset.sh và adventureworks.sh
+
+2. chạy docker compose up adventureworks trước rồi tab mới chạy docker compose
+
+3. dùng connection string: postgresql://superset:superset@host.docker.internal:15432/superset thay vì connect bình thường
+
+4. test thử xem có tạo dc dataset ko
+```
