@@ -30,6 +30,8 @@ aggr_beer_style as (
 )
 
 select 
+    makeDate(dim_time.year, dim_time.month, dim_time.day) as time_date,
+    dim_beer_style.name as style_name,
 	dim_time.uuid as time_id, 
 	aggr_beer_style.*
 from dim_beer_style, dim_time, aggr_beer_style
