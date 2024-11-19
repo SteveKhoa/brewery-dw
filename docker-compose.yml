@@ -30,11 +30,14 @@ services:
       nofile:
         soft: 262144
         hard: 262144
+    networks:
+      - clickhouse-network
 
   adventureworks:
     image: postgres
     networks:
       - superset-network
+      - clickhouse-network
     environment:
       - POSTGRES_DB=Adventureworks
       - POSTGRES_USER=postgres
@@ -82,4 +85,6 @@ volumes:
 
 networks:
   superset-network:
+    driver: bridge
+  clickhouse-network:
     driver: bridge
