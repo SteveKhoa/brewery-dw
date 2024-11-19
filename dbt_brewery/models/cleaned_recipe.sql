@@ -32,6 +32,7 @@ color_mapping as (
 select 
     title,
     style,
+    author,
     cast(abv as float) as abv,
     cast(ibu as float) as ibu,
     color_transformed as color,
