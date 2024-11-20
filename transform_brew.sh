@@ -3,13 +3,13 @@
 # Define variables
 CSV_FILE="brew.csv"
 SPLIT_PREFIX="brew_part_"
-SPLIT_LINES=100000
+SPLIT_LINES=50000
 DBT_PROJECT_DIR="dbt_brewery"
 SEED_DIR="seeds"
-SEED_CONFIG_FILE="$DBT_PROJECT_DIR/seeds.yml"
-MODEL_FILE="$DBT_PROJECT_DIR/models/combined_brew.sql"
+SEED_CONFIG_FILE="seeds.yml"
+MODEL_FILE="models/combined_brew.sql"
 
-cd dbt_brewery
+cd "$DBT_PROJECT_DIR"
 
 
 
@@ -25,44 +25,40 @@ for file in ${SPLIT_PREFIX}*; do
 done
 
 # Step 3: Create the seeds.yml configuration file
-# echo "Creating $SEED_CONFIG_FILE..."
-# echo "version: 2" > $SEED_CONFIG_FILE
-# echo "seeds:" >> $SEED_CONFIG_FILE
-# echo "  dbt_brewery:" >> $SEED_CONFIG_FILE
-# for file in ${SEED_DIR}/${SPLIT_PREFIX}*.csv; do
-#     seed_name=$(basename "$file" .csv)
-#     echo "    $seed_name:" >> $SEED_CONFIG_FILE
-#     echo "      description: \"Part of the brew data\"" >> $SEED_CONFIG_FILE
-# done
+for file in ${SEED_DIR}/${SPLIT_PREFIX}*.csv; do
+    seed_name=$(basename "$file" .csv)
+    echo "    $seed_name:" >> $SEED_CONFIG_FILE
+    echo "      description: \"Part of the brew data\"" >> $SEED_CONFIG_FILE
+done
 
 # Step 4: Create the combined_brew.sql model file
-# echo "Creating $MODEL_FILE..."
-# echo "-- models/combined_brew.sql" > $MODEL_FILE
-# echo "WITH" >> $MODEL_FILE
-# first=true
-# for file in ${SEED_DIR}/${SPLIT_PREFIX}*.csv; do
-#     seed_name=$(basename "$file" .csv)
-#     if [ "$first" = true ]; then
-#         first=false
-#     else
-#         echo "," >> $MODEL_FILE
-#     fi
-#     echo "  $seed_name AS (" >> $MODEL_FILE
-#     echo "      SELECT *" >> $MODEL_FILE
-#     echo "      FROM {{ ref('$seed_name') }}" >> $MODEL_FILE
-#     echo "  )" >> $MODEL_FILE
-# done
-# echo "SELECT * FROM" >> $MODEL_FILE
-# first=true
-# for file in ${SEED_DIR}/${SPLIT_PREFIX}*.csv; do
-#     seed_name=$(basename "$file" .csv)
-#     if [ "$first" = true ]; then
-#         first=false
-#     else
-#         echo "UNION ALL" >> $MODEL_FILE
-#     fi
-#     echo "SELECT * FROM $seed_name" >> $MODEL_FILE
-# done
+echo "Creating $MODEL_FILE..."
+echo "-- models/combined_brew.sql" > $MODEL_FILE
+echo "WITH" >> $MODEL_FILE
+first=true
+for file in ${SEED_DIR}/${SPLIT_PREFIX}*.csv; do
+    seed_name=$(basename "$file" .csv)
+    if [ "$first" = true ]; then
+        first=false
+    else
+        echo "," >> $MODEL_FILE
+    fi
+    echo "  $seed_name AS (" >> $MODEL_FILE
+    echo "      SELECT *" >> $MODEL_FILE
+    echo "      FROM {{ ref('$seed_name') }}" >> $MODEL_FILE
+    echo "  )" >> $MODEL_FILE
+done
+echo "SELECT * FROM" >> $MODEL_FILE
+first=true
+for file in ${SEED_DIR}/${SPLIT_PREFIX}*.csv; do
+    seed_name=$(basename "$file" .csv)
+    if [ "$first" = true ]; then
+        first=false
+    else
+        echo "UNION ALL" >> $MODEL_FILE
+    fi
+    echo "SELECT * FROM $seed_name" >> $MODEL_FILE
+done
 
 # Step 5: Load the seed data into ClickHouse
 # echo "Loading seed data into ClickHouse..."
