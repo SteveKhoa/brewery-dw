@@ -1,11 +1,159 @@
 version: 2
 seeds:
   dbt_brewery:
-    brew_100k:
-      description: "Part of the brew data"
     brew_part_aa:
       description: "Part of the brew data"
     brew_part_ab:
       description: "Part of the brew data"
-    brew_trimmed:
+    brew_part_ac:
+      description: "Part of the brew data"
+    brew_part_ad:
+      description: "Part of the brew data"
+    brew_part_ae:
+      description: "Part of the brew data"
+    brew_part_af:
+      description: "Part of the brew data"
+    brew_part_ag:
+      description: "Part of the brew data"
+    brew_part_ah:
+      description: "Part of the brew data"
+    brew_part_ai:
+      description: "Part of the brew data"
+    brew_part_aj:
+      description: "Part of the brew data"
+    brew_part_ak:
+      description: "Part of the brew data"
+    brew_part_al:
+      description: "Part of the brew data"
+    brew_part_am:
+      description: "Part of the brew data"
+    brew_part_an:
+      description: "Part of the brew data"
+    brew_part_ao:
+      description: "Part of the brew data"
+    brew_part_ap:
+      description: "Part of the brew data"
+    brew_part_aq:
+      description: "Part of the brew data"
+    brew_part_ar:
+      description: "Part of the brew data"
+    brew_part_as:
+      description: "Part of the brew data"
+    brew_part_at:
+      description: "Part of the brew data"
+    brew_part_au:
+      description: "Part of the brew data"
+    brew_part_av:
+      description: "Part of the brew data"
+    brew_part_aw:
+      description: "Part of the brew data"
+    brew_part_ax:
+      description: "Part of the brew data"
+    brew_part_ay:
+      description: "Part of the brew data"
+    brew_part_az:
+      description: "Part of the brew data"
+    brew_part_ba:
+      description: "Part of the brew data"
+    brew_part_bb:
+      description: "Part of the brew data"
+    brew_part_bc:
+      description: "Part of the brew data"
+    brew_part_bd:
+      description: "Part of the brew data"
+    brew_part_be:
+      description: "Part of the brew data"
+    brew_part_bf:
+      description: "Part of the brew data"
+    brew_part_bg:
+      description: "Part of the brew data"
+    brew_part_bh:
+      description: "Part of the brew data"
+    brew_part_bi:
+      description: "Part of the brew data"
+    brew_part_bj:
+      description: "Part of the brew data"
+    brew_part_bk:
+      description: "Part of the brew data"
+    brew_part_bl:
+      description: "Part of the brew data"
+    brew_part_bm:
+      description: "Part of the brew data"
+    brew_part_bn:
+      description: "Part of the brew data"
+    brew_part_bo:
+      description: "Part of the brew data"
+    brew_part_bp:
+      description: "Part of the brew data"
+    brew_part_bq:
+      description: "Part of the brew data"
+    brew_part_br:
+      description: "Part of the brew data"
+    brew_part_bs:
+      description: "Part of the brew data"
+    brew_part_bt:
+      description: "Part of the brew data"
+    brew_part_bu:
+      description: "Part of the brew data"
+    brew_part_bv:
+      description: "Part of the brew data"
+    brew_part_bw:
+      description: "Part of the brew data"
+    brew_part_bx:
+      description: "Part of the brew data"
+    brew_part_by:
+      description: "Part of the brew data"
+    brew_part_bz:
+      description: "Part of the brew data"
+    brew_part_ca:
+      description: "Part of the brew data"
+    brew_part_cb:
+      description: "Part of the brew data"
+    brew_part_cc:
+      description: "Part of the brew data"
+    brew_part_cd:
+      description: "Part of the brew data"
+    brew_part_ce:
+      description: "Part of the brew data"
+    brew_part_cf:
+      description: "Part of the brew data"
+    brew_part_cg:
+      description: "Part of the brew data"
+    brew_part_ch:
+      description: "Part of the brew data"
+    brew_part_ci:
+      description: "Part of the brew data"
+    brew_part_cj:
+      description: "Part of the brew data"
+    brew_part_ck:
+      description: "Part of the brew data"
+    brew_part_cl:
+      description: "Part of the brew data"
+    brew_part_cm:
+      description: "Part of the brew data"
+    brew_part_cn:
+      description: "Part of the brew data"
+    brew_part_co:
+      description: "Part of the brew data"
+    brew_part_cp:
+      description: "Part of the brew data"
+    brew_part_cq:
+      description: "Part of the brew data"
+    brew_part_cr:
+      description: "Part of the brew data"
+    brew_part_cs:
+      description: "Part of the brew data"
+    brew_part_ct:
+      description: "Part of the brew data"
+    brew_part_cu:
+      description: "Part of the brew data"
+    brew_part_cv:
+      description: "Part of the brew data"
+    brew_part_cw:
+      description: "Part of the brew data"
+    brew_part_cx:
+      description: "Part of the brew data"
+    brew_part_cy:
+      description: "Part of the brew data"
+    brew_part_cz:
       description: "Part of the brew data"
