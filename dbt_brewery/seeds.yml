@@ -1,0 +1,11 @@
+version: 2
+seeds:
+  dbt_brewery:
+    brew_100k:
+      description: "Part of the brew data"
+    brew_part_aa:
+      description: "Part of the brew data"
+    brew_part_ab:
+      description: "Part of the brew data"
+    brew_trimmed:
+      description: "Part of the brew data"
