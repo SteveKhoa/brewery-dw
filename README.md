@@ -76,3 +76,13 @@ Ok lưu ý cho ai muốn chạy các file smooth nhất có thể:
 
 4. test thử xem có tạo dc dataset ko
 ```
+
+# Transform & Load brew.csv to Clickhouse
+
+1. Ensure that the docker containers are up & running :)
+
+2. Download brew.csv and put it into dbt_brewery [Dataset](https://www.kaggle.com/datasets/ankurnapa/brewery-operations-and-market-analysis-dataset)
+
+3. Run transform_brew.sh
+
+The dataset should be loaded into clickhouse by the time the script finishes. After that you can import the data to Superset.
