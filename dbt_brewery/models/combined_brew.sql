@@ -1,1 +1,1 @@
-select * from {{ ref('raw_combined_recipe') }}
+select * from raw_combined_brew
