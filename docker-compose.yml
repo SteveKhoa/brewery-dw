@@ -3,9 +3,9 @@ version: '3'
 services:
   clickhouse-server:
     image: clickhouse/clickhouse-server
-    cpus: 1
-    mem_limit: 2048m
-    mem_reservation: 2048m
+    cpus: 4
+    mem_limit: 4096m
+    mem_reservation: 4096m
     cap_add:
       - SYS_NICE
       - NET_ADMIN 
@@ -59,7 +59,7 @@ services:
       retries: 30
     
   superset:
-    image: apache/superset
+    image: apache/superset:4.0.0
     networks:
       - superset-network
     depends_on:
