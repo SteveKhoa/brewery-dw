@@ -23,3 +23,7 @@ from file('shipmethod.csv');
 create table IF NOT EXISTS raw_vendor AS
 select *
 from file('vendor.csv');
+
+create table IF NOT EXISTS raw_products AS
+select *
+from file('products.csv');
