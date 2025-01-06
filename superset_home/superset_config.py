@@ -8,7 +8,7 @@ ROW_LIMIT = 5000
 # Alternatively you can set it with `SUPERSET_SECRET_KEY` environment variable.
 # You MUST set this for production environments or the server will refuse
 # to start and you will see an error in the logs accordingly.
-SECRET_KEY = 'BNi4awdF+W8xSJA0q/ssg4SjiFt0/S4mM41a4ls52OyuBMY+WR2Tc7BZ'
+SECRET_KEY = ''
 
 # The SQLAlchemy connection string to your database backend
 # This connection defines the path to the database that stores your
